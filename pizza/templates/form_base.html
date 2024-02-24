@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {# Add your title if needed #}
+{% endblock %}
+
+{% block content %}
+<div class="hero is-primary is-fullheight-with-navbar">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-4">
+                    <form action="." method="POST" class="box">
+                        {% csrf_token %}
+                        
+                        <div class="container is-centered mt-3 mb-6">
+                            <div class="columns is-centered">
+                                <h3 class="title is-1 has-text-black">{% block header %} {% endblock %}</h3>
+                            </div>
+                        </div>
+                    
+                        {% for field in form %}
+                            <div class="field">
+                                <label for="{{ field.id_for_label }}" class="label is-capitalized">{{ field.label }}</label>
+                                <div class="control">
+                                    {{ field }}
+                                    
+                                </div>
+                            </div>
+                        {% endfor %}
+                        
+                        <div class="field">
+                            {# Add any additional fields or messages if needed #}
+                        </div>
+                        
+                        <div class="field">
+                            <button class="button is-success" type="submit">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

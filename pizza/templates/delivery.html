@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="section">
+  <div class="container">
+      <h1 class="title">Delivery Details</h1>
+
+      <form method="post" action="" class="box">
+          {% csrf_token %}
+
+          <!-- Name -->
+          <div class="field">
+              <label class="label">Name</label>
+              <div class="control">
+                  {{ form.name }}
+              </div>
+          </div>
+
+          <!-- Address -->
+          <div class="field">
+              <label class="label">Address</label>
+              <div class="control">
+                  {{ form.address }}
+              </div>
+          </div>
+
+          <!-- Card Number -->
+          <div class="field">
+              <label class="label">Card Number</label>
+              <div class="control">
+                  {{ form.card_number }}
+              </div>
+          </div>
+
+          <!-- Expiry Date -->
+          <div class="field">
+              <label class="label">Expiry Date</label>
+              <div class="control">
+                  {{ form.expiry }}
+              </div>
+          </div>
+
+          <!-- CVV -->
+          <div class="field">
+              <label class="label">CVV</label>
+              <div class="control">
+                  {{ form.cvv }}
+              </div>
+          </div>
+
+          <div class="field">
+              <div class="control">
+                  <button type="submit" class="button is-primary">Submit Order</button>
+              </div>
+          </div>
+          
+      </form>
+
+      {% if form.errors %}
+  <div class="notification is-danger">
+    <button class="delete"></button>
+    <strong>Error!</strong> Please correct the following errors:
+    <ul>
+      {% for field, errors in form.errors.items %}
+        {% for error in errors %}
+          <li>{{ field }}: {{ error }}</li>
+        {% endfor %}
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}
+
+  </div>
+
+  
+</section>
+{% endblock %}

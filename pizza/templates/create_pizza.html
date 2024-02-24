@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="section">
+    <div class="container">
+        <h1 class="title">Create Your Pizza</h1>
+
+        <form method="post" action="" class="box">
+            {% csrf_token %}
+            
+            <div class="field">
+                <label class="label">Crust</label>
+                <div class="control">
+                    <div class="select is-primary">
+                        {{ form.crust }}
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Sauce</label>
+                <div class="control">
+                    <div class="select is-primary">
+                        {{ form.sauce }}
+                    </div>
+                </div>
+            </div>
+           
+            <div class="field">
+                <label class="label">Cheese</label>
+                <div class="control">
+                    <div class="select is-primary">
+                        {{ form.cheese }}
+                    </div>
+                </div>
+            </div>
+           
+            
+            
+            
+            <div class="field">
+                <label class="label">Size</label>
+                <div class="control">
+                    <div class="select is-primary">
+                        {{ form.size }}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="field">
+                <label class="label">Toppings</label>
+                <div class="control">
+                    <label class="checkbox">
+                        {{ form.pepperoni }} Pepperoni
+                    </label>
+                    <label class="checkbox">
+                        {{ form.chicken }} Chicken
+                    </label>
+                    <label class="checkbox">
+                        {{ form.ham }} Ham
+                    </label>
+                    <label class="checkbox">
+                        {{ form.pineapple }} Pineapple
+                    </label>
+                    <label class="checkbox">
+                        {{ form.peppers }} Peppers
+                    </label>
+                    <label class="checkbox">
+                        {{ form.mushrooms }} Mushrooms
+                    </label>
+                    <label class="checkbox">
+                        {{ form.onions }} Onions
+                    </label>
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <button type="submit" class="button is-primary">Create Pizza</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

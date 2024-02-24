@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+  <!-- order_confirmation.html -->
+
+
+
+<section class="section">
+  <div class="container">
+      <h1 class="title">{% block heading %} {% endblock %}</h1>
+      
+      <div class="box">
+          <h2 class="subtitle">Thank you for your order, {{ order.name }}!</h2>
+
+          <h3 class="subtitle">Order Details</h3>
+          <p><strong>Address:</strong> {{ order.address }}</p>
+          <p><strong>Delivery Date/Time:</strong> {{ order.date_ordered }}</p>
+
+          <h3 class="subtitle">Pizza Details</h3>
+          <p><strong>Size:</strong> {{ order.pizza.size }}</p>
+          <p><strong>Crust:</strong> {{ order.pizza.crust }}</p>
+          <p><strong>Sauce:</strong> {{ order.pizza.sauce }}</p>
+          <p><strong>Cheese:</strong> {{ order.pizza.cheese }}</p>
+          
+          <p><strong>Toppings:</strong> {{ order.pizza.get_selected_toppings|join:", " }}</p>
+          
+          <p><strong>Total Price:</strong> ${{ order.pizza.get_total_price }}</p>
+      </div>
+      {% block options %}
+
+{% endblock %}
+  </div>
+</section>
+
+
+
+{% endblock %}
+
+

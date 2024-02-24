@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="hero is-halfheight mb-6">
+  <div class="hero-body">
+      <div class="container">
+        <p class="title is-3 has-text-centered">
+          Rene's Pizza
+      </p>
+      <p class="subtitle is-6 has-text-centered">
+        Pizza préparée par nous pour vous
+      </p>
+          <img src="{% static 'pizza.jpg' %}" alt="Pizza Image" class="image" style="max-width: 100%; height: auto;">
+         
+      </div>
+  </div>
+</section>
+
+
+<section class="section has-background-light">
+  <div class="container">
+  <div class="columns is-vcentered">
+
+      <div class="column">
+          <div class="notification is-info">
+
+              <article class="media">
+                  <figure class="media-left">
+                      <!-- ... -->
+                  </figure>
+                  <div class="media-content">
+                      <div class="content">
+                          <!-- ... -->
+                      </div>
+                  </div>
+              </article>
+              
+              <h1 class="title is-size-4">Rene's Pizza?</h1>
+              <p class="is-size-5">
+                  Rene's Pizza is a diner that has served pizza to customers from all
+                  over the wrold for the past 95 years. From Italy to countries such as Thailand and Greece. ᕕ( ᐛ )ᕗ
+              </p>
+      </div>
+      </div>
+
+      <div class="column">
+          <div class="notification is-primary">
+              <h1 class="title is-size-4">Ingrediants</h1>
+              <p class="is-size-5">
+                  All of our ingrediants are freshly sourced and we try to keep them native the
+                  counrty the franchise is based in. We take great pride in this
+                  and hope to continue this tradition.⦤(^ー^)⦥
+              </p>
+  </div>
+  </div>
+
+  <div class="column">
+      <div class="notification is-warning">
+          <h1 class="title is-size-4">Our Staff</h1>
+          <p class="is-size-5">
+              At Rene's Pizza we are proud to say that we employ only the best
+              around. We strive for perfection and aim to always deliver our customers
+              the best quality pizza the can get. ٩(^ᴗ^)۶
+          </p>
+  </div>
+  </div>
+
+  </div>
+  </div>
+</section>
+{% endblock %}
+
+
+

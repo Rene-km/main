@@ -5,9 +5,69 @@
 		
 	</head>
 	<body>
-		<img src="{%static 'pizza.jpeg'%}" alt="Website logo">
+		<nav class="navbar has-shadow is-white">
+			<div class="navbar-brand">
+				<a class="navbar-item" href="{% if user.is_authenticated %}{% url 'index' %}{% else %}{% url 'welcome' %}{% endif %}">
+					<img src="{% static 'pizza_logo.png' %}"  style="max-height: 70px;">
+				  </a>
+				  <div class="navbar-burger" id="burger" data-target="navMenu">
+					<span></span>
+					<span></span>
+					<span></span>
+				  </div>
+			</div>
+
+			<div class="navbar-menu" id="navMenu">
+				<div class="navbar-end">
+					<div class="navbar-item">
+						<div class="buttons">
+							{% if user.is_authenticated %}
+							{# User is logged in, show other options or username #}
+							<div class="mr-5"><span class="is-size-6 is-black">{{ user.email }}</span></div>
+							<a href="{% url 'logout' %}" class="button is-light">
+								Log out
+							</a>
+						{% else %}
+							{# User is not logged in, show login/signup buttons #}
+							<a href="{% url 'register' %}" class="button is-primary">
+								<strong>Sign up</strong>
+							</a>
+							<a href="{% url 'login' %}" class="button is-light">
+								Log in
+							</a>
+						{% endif %}
+						</div>
+					  </div>
+				</div>
+
+			</div>
+		</nav>
 		{% block content %}
 		
     {% endblock %}
+
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+
+// Get all "navbar-burger" elements
+const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+// Add a click event on each of them
+$navbarBurgers.forEach( el => {
+  el.addEventListener('click', () => {
+
+	// Get the target from the "data-target" attribute
+	const target = el.dataset.target;
+	const $target = document.getElementById(target);
+
+	// Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+	el.classList.toggle('is-active');
+	$target.classList.toggle('is-active');
+
+  });
+});
+
+});
+	</script>
 	</body>
 </html> 
